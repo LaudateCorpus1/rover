@@ -55,9 +55,10 @@ timber = { path = "./crates/timber" }
 # workspace dependencies that are published to crates.io
 # we must rely on the published versions directly
 # in order to compile.
-apollo-federation-types = "0.1"
-apollo-supergraph-config = "0.1"
-
+# apollo-federation-types = "0.1.0"
+# apollo-supergraph-config = "0.1"
+apollo-federation-types = { path = "./crates/apollo-federation-types"}
+apollo-supergraph-config = { path = "./crates/apollo-supergraph-config"}
 # crates.io dependencies
 ansi_term = "0.12"
 anyhow = "1"
@@ -72,7 +73,8 @@ git-url-parse = "0.4"
 git2 = { version = "0.13", default-features = false, features = [
     "vendored-openssl",
 ] }
-harmonizer_fed_one = { package = "harmonizer", version = "0.33.7", optional = true }
+# harmonizer_fed_one = { package = "harmonizer", version = "0.33.7", optional = true }
+harmonizer_fed_one = { package = "harmonizer", path = "../federation/harmonizer", optional = true }
 heck = "0.4"
 lazycell = "1"
 opener = "0.5"

@@ -16,6 +16,17 @@ pub struct SupergraphConfig {
 }
 
 impl SupergraphConfig {
+    /// Create a new SupergraphConfig
+    pub fn new(input: &[(String, SubgraphConfig)]) -> Self {
+        let mut subgraphs = BTreeMap::new();
+
+        for (subgraph_name, subgraph_config) in input {
+            subgraphs.insert(subgraph_name.to_string(), subgraph_config.to_owned());
+        }
+
+        SupergraphConfig { subgraphs }
+    }
+
     /// Create a new SupergraphConfig from a YAML string in memory.
     pub fn new_from_yaml(yaml: &str) -> Result<SupergraphConfig> {
         let parsed_config =
